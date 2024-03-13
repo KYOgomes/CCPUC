@@ -1,0 +1,63 @@
+@startuml
+class persistencia.Persistencia {
+- {static} String USERNAME
+- {static} String PASSWORD
+- {static} String DATABASE_URL
++ {static} Connection createConnectionToMySQL()
+}
+class vista.TesteAgenda {
++ {static} void main(String[])
+}
+class controle.ContatoCT {
++ void insert(Contato)
++ void update(Contato)
++ void delete(Contato)
++ Contato select(String)
++ List<Contato> getContatos()
+}
+class modelo.Contato {
+- int codigo
+- String nome
+- String telefone
+- String endereco
++ int getId()
++ void setId(int)
++ String getNome()
++ void setNome(String)
++ String getTelefone()
++ void setTelefone(String)
++ String getEndereco()
++ void setEndereco(String)
+}
+class controle.ContatoDAO {
++ void insert(Contato)
++ void delete(int)
++ void update(Contato)
++ List<Contato> getContatos()
++ Contato select(String)
+}
+class vista.TelaContato {
+- JPanel contentPane
+- JTextField txtNome
+- JTextField txtEndereco
+- JTextField txtTel
+- String txtID
+- JComboBox cbPesquisar
+- ButtonGroup bt
+- JButton btnSalvar
+- JButton btnExcluir
+- JButton btnEditar
+- JButton btnPesquisar
+- JButton btnLimpar
++ Contato montaContato()
++ Contato editaContato(int)
++ void carregaContatonaTela(Contato)
++ void limpaTela()
++ void carregaLista()
++ void actionPerformed(ActionEvent)
+}
+
+
+java.awt.event.ActionListener <|.. vista.TelaContato
+vista.JFrame <|-- vista.TelaContato
+@enduml
