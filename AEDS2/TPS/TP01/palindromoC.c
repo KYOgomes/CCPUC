@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-//palindromo em c, comparando as palavras e invertendo elas para ver se são iguais
+//palindromo em c, comparando as palavras e invertendo elas para ver se são iguaisra
 int main(void) {
 
   char palavra1[1000], palavra2[1000];
